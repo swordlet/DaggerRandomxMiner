@@ -211,13 +211,13 @@ namespace XDag
 #define clog(X) nlog(X)
 #define cslog(X) nslog(X)
 #else
-#ifdef NDEBUG
-#define clog(X) if (X::debug) {} else dev::LogOutputStream<X, true>()
-#define cslog(X) if (X::debug) {} else dev::LogOutputStream<X, false>()
-#else
+//#ifdef NDEBUG
+//#define clog(X) if (X::debug) {} else dev::LogOutputStream<X, true>()
+//#define cslog(X) if (X::debug) {} else dev::LogOutputStream<X, false>()
+//#else
 #define clog(X) XDag::LogOutputStream<X, true>()
 #define cslog(X) XDag::LogOutputStream<X, false>()
-#endif
+//#endif
 #endif
 
 // Simple cout-like stream objects for accessing common log channels.

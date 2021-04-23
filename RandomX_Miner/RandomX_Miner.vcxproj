@@ -173,6 +173,7 @@
   <ItemGroup>
     <ClCompile Include="Core\CommonData.cpp" />
     <ClCompile Include="Core\Farm.cpp" />
+    <ClCompile Include="Core\global.cpp" />
     <ClCompile Include="Core\Log.cpp" />
     <ClCompile Include="Core\Miner.cpp" />
     <ClCompile Include="Core\MinerManager.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="XDagCore\XPool.cpp" />
     <ClCompile Include="XDagCore\XTaskProcessor.cpp" />
     <ClCompile Include="XDagCore\XTaskWrapper.cpp" />
+    <ClInclude Include="Core\global.h" />
     <ClInclude Include="MinerEngine\XCpuMiner.h" />
     <ClInclude Include="XDagCore\XFee.h" />
     <ClInclude Include="XDagCore\XConnection.h" />

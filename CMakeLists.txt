@@ -5,11 +5,18 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_CXX_FLAGS -pthread)
+
 find_package(Boost COMPONENTS system filesystem thread date_time chrono regex serialization program_options locale)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     include_directories(${Boost_INCLUDE_DIR})
 endif()
+#set(Boost_INCLUDE_DIRS /usr/include/boost169)
+#set(Boost_INCLUDE_DIR /usr/include/boost169)
+#set(Boost_LIBRARY_DIRS /usr/lib64/boost169)
+#include_directories(${Boost_INCLUDE_DIRS})
+#include_directories(${Boost_INCLUDE_DIR})
 message("boost include dirs ${Boost_INCLUDE_DIRS}")
 message("boost include dirs ${Boost_INCLUDE_DIR}")
 
@@ -33,6 +40,8 @@ include_directories(RandomX_MinerXDagCore/dar)
 include_directories(RandomX_MinerXDagCore/dfstools)
 
 add_executable(DaggerRandomxMiner
+        RandomX_Miner/Core/global.h
+        RandomX_Miner/Core/global.cpp
         RandomX_Miner/Core/Common.h
         RandomX_Miner/Core/CommonData.cpp
         RandomX_Miner/Core/CommonData.h
@@ -95,7 +104,7 @@ add_executable(DaggerRandomxMiner
         RandomX_Miner/XDagCore/XTime.h
         RandomX_Miner/main.cpp
         RandomX_Miner/resource.h
-        RandomX_Miner/version.h)
+        RandomX_Miner/version.h RandomX_Miner/Core/global.cpp RandomX_Miner/Core/global.h)
 
 target_link_libraries(
         DaggerRandomxMiner

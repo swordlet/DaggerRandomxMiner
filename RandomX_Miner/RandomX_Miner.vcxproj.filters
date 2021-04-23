@@ -125,6 +125,9 @@
       <Filter>XDagCore</Filter>
     </ClCompile>
     <ClCompile Include="XDagCore\XPoolConnection.cpp" />
+    <ClCompile Include="Core\global.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\PathUtils.h">
@@ -239,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="XDagCore\XTime.h">
       <Filter>XDagCore</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\global.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
