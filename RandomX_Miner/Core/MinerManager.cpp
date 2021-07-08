@@ -255,6 +255,10 @@ bool MinerManager::InterpretOption(int& i, int argc, char** argv)
     {
         _disableFee = true;
     }
+    else if(arg == "-L")
+    {
+        _largeMem = true;
+    }
     else
     {
         return false;
@@ -321,6 +325,7 @@ void MinerManager::StreamHelp(ostream& _out)
         //<< "    -nvidia-fix <n> Use workaround on high cpu usage with nvidia cards. n - optional value of thread sleep time, should be 0-95. (default: 90)" << endl
 		<< "    -w, -worker Allows to set a worker name." << endl
 		<< "    -T  For testnet." << endl
+		<< "    -L  For large memory(huge pages) mode." << endl
         << endl
        /* << " OpenCL configuration:" << endl
         << "    -cl-local-work Set the OpenCL local work size. Default is " << CLMiner::_defaultLocalWorkSize << endl
@@ -342,6 +347,9 @@ void MinerManager::DoBenchmark(MinerType type, unsigned warmupDuration, unsigned
 
 	// RandomX CPU benchmark
     XTaskProcessor taskProcessor;
+    if(_largeMem){
+        taskProcessor.SetLargeMem();
+    }
     FillRandomTask(taskProcessor.GetNextTask());
     taskProcessor.SwitchTask();
 
@@ -402,6 +410,9 @@ void MinerManager::DoMining(MinerType type, string& remote, unsigned recheckPeri
     XGlobal::Init();
 
     XTaskProcessor taskProcessor;
+    if(_largeMem){
+        taskProcessor.SetLargeMem();
+    }
     XFee fee(remote);
     XPool pool(_accountAddress, remote, _workerName, &taskProcessor);
     if(!pool.Connect())

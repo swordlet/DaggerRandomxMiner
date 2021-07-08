@@ -21,11 +21,6 @@ XTaskProcessor::XTaskProcessor()
 
 	_flags = randomx_get_flags();
 
-#if defined (__MACOS__) || defined (__APPLE__)
-#else
-	_flags |= RANDOMX_FLAG_LARGE_PAGES;
-#endif
-
 	_flags |= RANDOMX_FLAG_FULL_MEM;
 }
 
@@ -136,4 +131,11 @@ void XTaskProcessor::InitDataset(randomx_dataset* dataset, randomx_cache* cache,
 	else {
 		randomx_init_dataset(dataset, cache, 0ul, datasetItemCount);
 	}
+}
+
+void XTaskProcessor::SetLargeMem() {
+#if defined (__MACOS__) || defined (__APPLE__)
+#else
+    _flags |= RANDOMX_FLAG_LARGE_PAGES;
+#endif
 }

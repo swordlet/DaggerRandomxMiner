@@ -22,3 +22,5 @@ RandomX_Miner/RandomX_Miner.xcodeproj/project.xcworkspace
 mac/RandomX_Miner.xcodeproj/project.xcworkspace
 /cmake-build-debug
 /cmake-build-release
+/cmake-build-remote--release
+/cmake-build-remote-debug

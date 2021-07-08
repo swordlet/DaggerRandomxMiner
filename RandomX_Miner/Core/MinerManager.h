@@ -105,6 +105,7 @@ private:
     bool _disableFee = false;
     //uint32_t _nvidiaSpinDamp = CLMiner::_defaultNvidiaSpinDamp;
     bool _useVectors = false;
+    bool _largeMem = false;
 
     /// Benchmarking params
     unsigned _benchmarkWarmup = 15;

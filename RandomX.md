@@ -39,11 +39,19 @@ The miner can't change PoW algorithm automatically.   So miner must start new ve
 ```bash
 DaggerMiner -cpu  -M -t <MINING_THREAD_NUMBER> 
 ```
+using huge pages
+```bash
+DaggerMiner -cpu  -M -L -t <MINING_THREAD_NUMBER> 
+```
 
 ## CPU RandowX Miner 
 
 ```bash
 DaggerMiner -cpu  -p <POOL_ADDRESS>:<POOL_PORT> -t <MINING_THREAD_NUMBER> -a <WALLET_ADDRESS>
+```
+using huge pages
+```bash
+DaggerMiner -cpu -L -p <POOL_ADDRESS>:<POOL_PORT> -t <MINING_THREAD_NUMBER> -a <WALLET_ADDRESS>
 ```
 
 miner not support GPU yet.

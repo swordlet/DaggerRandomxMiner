@@ -93,10 +93,10 @@ uint64_t XCpuMiner::SearchMinNonce(uint64_t* input, uint64_t* nonce, int iterati
 	randomx_dataset* dataset = GetDataset();
     flags |= RANDOMX_FLAG_FULL_MEM;
 
-#if defined (__MACOS__) || defined (__APPLE__)
-#else
-    flags |= RANDOMX_FLAG_LARGE_PAGES;
-#endif
+//#if defined (__MACOS__) || defined (__APPLE__)
+//#else
+//    flags |= RANDOMX_FLAG_LARGE_PAGES;
+//#endif
 
 	randomx_vm *vm = randomx_create_vm(flags, NULL, dataset);
 	if (vm == nullptr) {
