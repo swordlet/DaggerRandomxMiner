@@ -40,7 +40,7 @@ public:
     void ResetTasks() { _taskIsActive = false; }
 
     void DumpTasks();
-
+    void SetLargeMem();
 	randomx_flags GetFlags() { return _flags;  }
 	randomx_dataset* GetDataset();
 };
